@@ -1,0 +1,91 @@
+<app-header></app-header>
+<section class="tv_alcoves">
+    <div class="container">
+        <div class="breadcun"> </div>
+        
+           
+        
+        <div class="content_service">
+            <p>
+                We can reproduce any Instagram image for your built-in furniture,
+                We can provide TV and alcove units in classic and contemporary finishes, the easiest way to get the built-in furniture you want is to share some Instagram images of what you like and we will manufacture to you exact requirements.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input type="search"  class="form-control" [(ngModel)]="term"  placeholder="Search"/>
+                    </div>      
+                </div>
+            </div>
+        </div>
+        <div class="tvalcoves_list">
+            <ngx-spinner [name]="spinnerName" [type]="spinnerType"></ngx-spinner>
+            <ul class="row">
+                
+
+                <!-- ----------------example for coming the requst from backend  ------------->
+             
+                    <!-- <ng-container *ngIf="term?.length  else empty">   
+                        <li class="col-sm-4 col-md-4 col-xs-4 col-xl-4" *ngFor = "let tvalocoves_ of srr|filter:term"> 
+                          
+                                <a [routerLink]="['/tvalcovesdetails',tvalocoves_.id]">
+                                    <div class="img">
+                                        <figure>
+                                            <img src="http://localhost/peterbernard_ci/uploads/{{tvalocoves_.image}}">
+                                        </figure>
+                                    </div>                       
+                                    <div class="tvalcoves_content">
+                                        <h2>{{tvalocoves_.banner_name}}</h2>
+                                        <p>{{tvalocoves_.text}}</p>
+                                    </div>
+                                </a>
+                           
+                       
+                        </li>
+                    </ng-container>
+                    <ng-template #empty>
+                        <h3>No products Found</h3>
+                    </ng-template>     -->
+
+               <!-- ---------------------------end-------------- -->
+
+
+
+                <!-- ----------------normal checkimg the condition  ------------->
+              
+                  
+                <li class="col-sm-6 col-md-6 col-xs-6 col-xl-6" *ngFor = "let tvalocoves_ of srr|filter:term let i=index" > 
+                    
+                        <a [routerLink]="['/tvalcovesdetails',tvalocoves_.id]">
+                            <div class="img">
+                                <figure>
+                                    <img src="http://localhost/peterbernard_ci/uploads/{{tvalocoves_.image}}">
+                                </figure>
+                            </div>                       
+                            <div class="tvalcoves_content">
+                                <h2>{{tvalocoves_.banner_name}}</h2>
+                                <p>{{tvalocoves_.text}}</p>
+                            </div>
+                        </a>
+                                                                
+                </li>
+            
+                <!-- <button type="button" (click)="getItems()">Load More</button> -->
+                <div *ngIf= "showButton" type="button" (click)="getItems()" class="loader"> 
+                    <!-- <mat-spinner value="100"></mat-spinner> -->
+                    <a href="javascript:void(0)"> Load More</a>
+                </div>    
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>{{kaka}}</h4>
+                    </div>
+                </div>
+                   
+            </ul>
+        </div>
+            
+    </div>
+</section>
+<app-footer></app-footer>
